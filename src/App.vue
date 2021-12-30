@@ -1,19 +1,28 @@
 <template>
-  <h1>{{ message }}</h1>
-  <HelloWorld />
+  <h1>{{ count }}</h1>
 </template>
 
 <script>
-import HelloWorld from '~/components/HelloWorld'
 
 export default {
-  components: {
-    HelloWorld
-  },
     data() {
       return {
-        message: 'Hello Vue!!'
+        count: 2
       }
+    },
+    beforeCreate() {
+      console.log('Before Create!')
+    },
+    created() {
+      console.log('Created!', this.count)
+    },
+    beforeMount() {
+      console.log('Before Mount!')
+      console.log(document.querySelector('h1'))
+    },
+    mounted() {
+      console.log('Mounted!')
+      console.log(document.querySelector('h1'))
     }
 }
 </script>
